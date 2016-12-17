@@ -19,12 +19,9 @@ class HeartRateDetectionModel: NSObject {
     
     let framesPerSecond:Float = 30
     let seconds:Float = 30
-    
     static var count:Int = 0
-    
     weak var delegate:HeartRateDetectionModelDelegate?
-    
-    let session:AVCaptureSession = AVCaptureSession()
+    var session:AVCaptureSession = AVCaptureSession()
     var dataPointsHue:[CGFloat] = []
 }
 
@@ -33,6 +30,8 @@ extension HeartRateDetectionModel {
     
     func startDetection() {
         
+        dataPointsHue = []
+        session = AVCaptureSession()
         session.sessionPreset = AVCaptureSessionPresetLow
         
         //get the back camera
@@ -85,7 +84,7 @@ extension HeartRateDetectionModel {
         videoOutput.setSampleBufferDelegate(self, queue: captureQueue)
         
         //configure the pixel format
-        videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as AnyHashable : kCVPixelFormatType_32BGRA]
+        videoOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as AnyHashable : Int(kCVPixelFormatType_32BGRA)]
         
         videoOutput.alwaysDiscardsLateVideoFrames = false
         
@@ -263,7 +262,7 @@ extension HeartRateDetectionModel {
         var peaks:Int = 0
         var isPeak:Bool = false
         let first:Int = 3
-        let last:Int = inputData.count + 3
+        let last:Int = inputData.count - 3
         var interval:Int = 1
 
         for i in sequence(first: first, next: {$0 + interval < last ? $0 + interval : nil}) {
