@@ -13,6 +13,7 @@ protocol HeartRateDetectionModelDelegate: class {
     func heartRateStart()
     func heartRateUpdate(bpm:Int, atTime seconds:Int)
     func heartRateEnd()
+    func heartRateRawData(data:CGFloat)
 }
 
 class HeartRateDetectionModel: NSObject {
@@ -161,6 +162,7 @@ extension HeartRateDetectionModel: AVCaptureVideoDataOutputSampleBufferDelegate 
         var hue:CGFloat = 0, sat:CGFloat = 0, bright:CGFloat = 0
         color.getHue(&hue, saturation: &sat, brightness: &bright, alpha: nil)
         dataPointsHue.append(hue)
+        delegate?.heartRateRawData(data: hue)
         
         // Only send UI updates once a second
         if dataPointsHue.count % Int(framesPerSecond) == 0
