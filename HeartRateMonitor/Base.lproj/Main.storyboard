@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,8 @@
                                     <constraint firstAttribute="width" constant="117" id="58V-Lz-6ta"/>
                                     <constraint firstAttribute="height" constant="30" id="UnV-ln-VFD"/>
                                 </constraints>
-                                <state key="normal" title="Start Detection"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startDetectionButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bb4-TU-NZc"/>
                                 </connections>
@@ -73,30 +75,40 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heart Rate Monitor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plT-ji-nI2">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="209" id="Krz-tO-16A"/>
-                                    <constraint firstAttribute="height" constant="55" id="aRt-5q-afo"/>
+                                    <constraint firstAttribute="height" constant="30" id="aRt-5q-afo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhh-d2-Fcp" customClass="LineChartView" customModule="Charts">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uRe-RY-63a"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uRe-RY-63a" firstAttribute="top" secondItem="plT-ji-nI2" secondAttribute="bottom" constant="35" id="Bcc-gY-QtL"/>
-                            <constraint firstItem="mJ9-ww-HqV" firstAttribute="top" secondItem="chh-8h-Ouj" secondAttribute="bottom" constant="168" id="K2b-GH-gWg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lhh-d2-Fcp" secondAttribute="trailing" id="7p7-HH-VSO"/>
+                            <constraint firstItem="uRe-RY-63a" firstAttribute="leading" secondItem="plT-ji-nI2" secondAttribute="trailing" constant="-1" id="CDJ-ME-6Js"/>
+                            <constraint firstItem="lhh-d2-Fcp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EDn-jv-bbU"/>
+                            <constraint firstItem="mJ9-ww-HqV" firstAttribute="top" secondItem="lhh-d2-Fcp" secondAttribute="bottom" constant="30" id="IzU-wC-iIt"/>
                             <constraint firstItem="chh-8h-Ouj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LJj-0C-dJi"/>
-                            <constraint firstItem="uRe-RY-63a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NkY-2Y-gjJ"/>
-                            <constraint firstItem="chh-8h-Ouj" firstAttribute="top" secondItem="plT-ji-nI2" secondAttribute="bottom" constant="113" id="Yl2-CW-qLE"/>
-                            <constraint firstItem="plT-ji-nI2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="62" id="aYS-rs-JqS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mJ9-ww-HqV" secondAttribute="bottom" constant="70" id="XJJ-hV-qFi"/>
+                            <constraint firstItem="lhh-d2-Fcp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="YjQ-tO-yU5"/>
+                            <constraint firstItem="chh-8h-Ouj" firstAttribute="top" secondItem="plT-ji-nI2" secondAttribute="bottom" constant="30" id="Yl2-CW-qLE"/>
+                            <constraint firstItem="lhh-d2-Fcp" firstAttribute="top" secondItem="chh-8h-Ouj" secondAttribute="bottom" constant="21" id="Zgn-MC-eN2"/>
+                            <constraint firstItem="plT-ji-nI2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="aYS-rs-JqS"/>
                             <constraint firstItem="plT-ji-nI2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k1H-ak-hzt"/>
+                            <constraint firstItem="uRe-RY-63a" firstAttribute="centerY" secondItem="plT-ji-nI2" secondAttribute="centerY" id="m4T-FU-dCX"/>
                             <constraint firstItem="mJ9-ww-HqV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t3t-iT-1dl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="heartRate" destination="oTJ-tQ-H7f" id="VbB-gd-Iqm"/>
+                        <outlet property="lineChartView" destination="lhh-d2-Fcp" id="WVY-k3-cWe"/>
                         <outlet property="secondsPassed" destination="o6Q-s1-1IB" id="Tch-RA-kTe"/>
                         <outlet property="spinner" destination="uRe-RY-63a" id="M8l-Ax-vCe"/>
+                        <outlet property="stopStartButton" destination="mJ9-ww-HqV" id="fFC-Gm-Lyt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
