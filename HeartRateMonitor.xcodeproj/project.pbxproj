@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932478D81E04FC0E007B0962 /* HeartRateDetectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932478D71E04FC0E007B0962 /* HeartRateDetectionModel.swift */; };
 		9330C05E1E03941A00976900 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330C05D1E03941A00976900 /* AppDelegate.swift */; };
 		9330C0601E03941A00976900 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9330C05F1E03941A00976900 /* ViewController.swift */; };
 		9330C0631E03941A00976900 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9330C0611E03941A00976900 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		932478D71E04FC0E007B0962 /* HeartRateDetectionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateDetectionModel.swift; sourceTree = "<group>"; };
 		9330C05A1E03941A00976900 /* HeartRateMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartRateMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9330C05D1E03941A00976900 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9330C05F1E03941A00976900 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				9330C05D1E03941A00976900 /* AppDelegate.swift */,
 				9330C05F1E03941A00976900 /* ViewController.swift */,
+				932478D71E04FC0E007B0962 /* HeartRateDetectionModel.swift */,
 				9330C0611E03941A00976900 /* Main.storyboard */,
 				9330C0641E03941A00976900 /* Assets.xcassets */,
 				9330C0661E03941A00976900 /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				932478D81E04FC0E007B0962 /* HeartRateDetectionModel.swift in Sources */,
 				9330C0601E03941A00976900 /* ViewController.swift in Sources */,
 				9330C05E1E03941A00976900 /* AppDelegate.swift in Sources */,
 			);
@@ -300,6 +304,7 @@
 				9330C06E1E03941A00976900 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

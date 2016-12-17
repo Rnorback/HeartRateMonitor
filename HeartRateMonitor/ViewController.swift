@@ -7,19 +7,39 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-
+        
+    @IBOutlet var heartRate: UILabel!
+    @IBOutlet var secondsPassed: UILabel!
+    @IBOutlet var spinner: UIActivityIndicatorView!
+    
+    var heartRateDetectionModel = HeartRateDetectionModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        heartRateDetectionModel.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func startDetectionButtonPressed(_ sender: UIButton) {
+        heartRateDetectionModel.startDetection()
     }
-
 
 }
 
+extension ViewController: HeartRateDetectionModelDelegate {
+    
+    func heartRateStart() {
+        spinner.startAnimating()
+    }
+    
+    func heartRateUpdate(bpm:Int, atTime seconds:Int) {
+        heartRate.text = String(bpm)
+        secondsPassed.text = String(seconds)
+    }
+    
+    func heartRateEnd() {
+        spinner.stopAnimating()
+    }
+}
